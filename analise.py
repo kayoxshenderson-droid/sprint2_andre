@@ -4,16 +4,16 @@ import matplotlib.pyplot as plt
 # lê o ".csv"
 df = pd.read_csv("filme_netflix.csv")
 
-# mostrando algumas informações
+# mostra informaçoes
 print("Quantidade de linhas:", len(df))
 print(df.head())
 
-# separando as colunas
+# separa as colunas
 df["type"] = df["type"].fillna("Nao Informado")
 df["country"] = df["country"].fillna("Nao Informado")
 df["release_year"] = pd.to_numeric(df["release_year"], errors="coerce")
 
-# ============= Grafico de Pizza =============
+# ============= Grafico de Pizza ( Grafico de Setores ) =============
 
 tipos = df["type"].value_counts()
 
@@ -68,7 +68,7 @@ plt.show()
 
 # ============= BOXPLOT =============
 
-# pegando somente filmes
+# pega só o Filme
 filmes = df[df["type"] == "Movie"].copy()
 
 # pegando os numeros da duracao
